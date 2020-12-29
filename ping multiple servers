@@ -1,0 +1,18 @@
+[ec2-user@ip-172-31-43-55 ~]$ cat hostfile
+localhost
+127.0.0.1
+google.com
+jibberish
+sdfhasdufbasdilf
+
+
+[ec2-user@ip-172-31-43-55 ~]$ cat ping.sh
+for i in `cat hostfile`; do
+        ping -c 1 $i > /tmp/pingresults.log
+        valid=`echo $?`
+        if [ $valid -ge 1 ]; then
+                echo "$i host is not reachable"
+        else
+                echo "$i host is Up"
+        fi
+done
