@@ -1,0 +1,22 @@
+${parameter} - parameter substitution
+$(command) - command substitution
+
+echo $(date) - gives date output ✅, command date already exists and hence we get the output.
+echo ${date} - no output ❌, as it looks for a variable named date, which is not defined.
+
+${var%string} - deletes the shortest match of string in $var from END
+${var#string} - deltes the shortest match of string in $var from START
+
+name=cat.txt
+echo ${name%txt}text - output: cat.text; deletes txt from the end and substitute it with text at the end.
+echo rat${name#cat} - output: rat.txt; deletes cat from the start and substitute it with rat at the start.
+
+-----------------RENAME MULTIPLE FILES FROM START---------------
+
+touch abc123 abc456 abc789
+for i in abc*; do mv $i "def${i#abc}"; done
+
+-----------------RENAME MULTIPLE FILES FROM END---------------
+
+touch file.f77 touch.f77
+for i in *.f77; do mv $i "${i%f77}f99"; done
