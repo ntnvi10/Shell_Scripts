@@ -17,7 +17,7 @@ sed 's/unix/linux/3g' geekfile.txt ; The following sed command replaces the thir
 5. cat -n <filename> | sed -n 3,5p ; Print a particular set of lines: 
 This will print the lines from 3 to 5.
 cat -n geekfile | sed -n -e 2p -e 4p ; print line 2 and line 4.
-sed -n '$p' <filename>
+sed -n '$p' <filename> ; print the last line
 
 6. sed '3d' <filename> ;Delete a line:  this will delete 3rd line; d=delete
 cat -n geekfile | sed '2,4d' ; delete lines from 2 to 4.
