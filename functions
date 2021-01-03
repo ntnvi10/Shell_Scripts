@@ -1,0 +1,67 @@
+Difference between function and loops
+Function - formulaes in maths like percent
+In any programming languuage, we make the formuales (or function)(there are some fixed steps or piece of code), 
+so that we don't need to write again the piece of code that defines the fucntion.
+
+we might need the same block of function code in a different program or in the same program at different lines, that's why we make the fucntion.
+conclusion, fucntion is a block of code that we need at different times during one program or in different programs.
+
+Loop - continue repeat the some piece of code over a certain line.
+at the same place
+
+Syntax - function_name() {
+                statement
+                  }
+                  
+Calling a function - function_name arguments;
+
+Passing parameter to a fucntion: 
+----------------x----------------
+Example: check two numbers are equal:-
+a=1 b=1
+check() {
+        echo "comparing $1 and $2"
+        if [ $1 -eq $2 ]; then
+          echo "numbers are equal"
+        else
+          echo "numbers aren't equal"
+        fi
+  }
+
+check $a $b
+
+c=2 d=3
+check $c $d
+
+-------------------x------------
+Return Values from Functions:-
+
+a fucntion runs a particular code and returns to the same line from where it was executed or invoked.
+by default a function will run everything and after the last line it will return, unless you specify return in the function
+
+when a fucntion is returning, there'll be a value that it will be returning.
+Example:-
+
+a=1 b=1
+check() {
+        echo "comparing $1 and $2"
+        if [ $1 -eq $2 ]; then
+          echo "numbers are equal"
+        return 007 #you can give any value and that will be reutrned instead of the exit status.
+        else
+          echo "numbers aren't equal"
+        fi
+        echo "x----completed check $1 and $2----x"
+  }
+#here since first condition is met, so it'll reutrn back to the place from where it was invoked without going through the second echo(after if)
+check
+var=$?
+echo "**first time var = $var**"
+
+echo " "
+#here since first condition isn't met, it'll go throught all the lines of the function and reutrn the value of exit status 0
+c=2 d=3
+check $c $d
+var=$?
+echo "**second time var = $var**"
+
